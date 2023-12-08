@@ -18,6 +18,10 @@ describe("Solution 1", () => {
       "oo",
     ];
 
+    /**
+     *  I used a more complicated matcher because a specific return order isn't
+     *  required and could differ between implementations.
+     */
     expect(result).toEqual(expect.arrayContaining(expectedResult));
     expect(result).toBeArrayOfSize(expectedResult.length);
   });

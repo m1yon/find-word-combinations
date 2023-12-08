@@ -12,8 +12,12 @@ const findWordCombinations = ({
   availableLetters: string;
   wordTrie: WordTrie;
 }) => {
-  const result = new Set();
-
+  /**
+   *  I decided to keep the result set and availableLetterCounts in the
+   *  closure because it makes the code easier to read since you're
+   *  passing around fewer arguments.
+   */
+  const result = new Set(); // I used a Set here to prevent duplicates.
   const availableLetterCounts = buildAvailableLetterCounts(availableLetters);
 
   const generateWordCombinations = ({
@@ -35,6 +39,11 @@ const findWordCombinations = ({
       }
 
       if ((availableLetterCounts.get(letter) ?? 0) > 0) {
+        /**
+         *  I initially cloned the set here each time and sent it as an argument,
+         *  but ultimately switched to this in-place manipulation approach because
+         *  cloning a set each time is costly performance and memory-wise.
+         */
         availableLetterCounts.set(
           letter,
           (availableLetterCounts.get(letter) ?? 0) - 1
