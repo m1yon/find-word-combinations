@@ -22,3 +22,12 @@ it("generates the correct tree given multiple words that do not connect", () => 
 
   expect(root).toMatchSnapshot();
 });
+
+it("generates the correct tree given multiple words that do connect", () => {
+  const root = new WordTrie({ value: "" });
+  root.addWord("great");
+  root.addWord("growl");
+  root.addWord("growler");
+
+  expect(root).toMatchSnapshot();
+});
