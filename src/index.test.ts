@@ -3,7 +3,8 @@ import findWordCombinations from ".";
 
 it("finds the correct words given a standard input", () => {
   const result = findWordCombinations("oogd");
-  expect(result).toEqual([
+
+  const expectedResult = [
     "do",
     "dog",
     "doo",
@@ -14,7 +15,10 @@ it("finds the correct words given a standard input", () => {
     "o",
     "od",
     "oo",
-  ]);
+  ];
+
+  expect(result).toEqual(expect.arrayContaining(expectedResult));
+  expect(result).toBeArrayOfSize(expectedResult.length);
 });
 
 it("finds no words given an empty string", () => {
