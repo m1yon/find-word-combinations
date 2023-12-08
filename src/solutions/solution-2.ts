@@ -1,4 +1,5 @@
 import { WordTrie } from "../utils/WordTrie";
+import { buildAvailableLetterCounts } from "../utils/buildAvailableLetterCounts";
 
 // M = length of available letters
 // D = Maximum depth of wordTrie
@@ -13,14 +14,7 @@ const findWordCombinations = ({
 }) => {
   const result = new Set();
 
-  const availableLetterCounts = new Map();
-
-  availableLetters.split("").forEach((character) => {
-    availableLetterCounts.set(
-      character,
-      (availableLetterCounts.get(character) ?? 0) + 1
-    );
-  });
+  const availableLetterCounts = buildAvailableLetterCounts(availableLetters);
 
   const generateWordCombinations = ({
     currentNode,

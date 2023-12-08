@@ -1,4 +1,5 @@
 import words from "../data/words.json";
+import { buildAvailableLetterCounts } from "../utils/buildAvailableLetterCounts";
 
 // N = number of english words
 // M = length of available letters
@@ -8,14 +9,7 @@ const findWordCombinations = (availableLetters: string) => {
   const result = [];
 
   for (const word of words) {
-    const availableLetterCounts = new Map();
-
-    availableLetters.split("").forEach((character) => {
-      availableLetterCounts.set(
-        character,
-        (availableLetterCounts.get(character) ?? 0) + 1
-      );
-    });
+    const availableLetterCounts = buildAvailableLetterCounts(availableLetters);
 
     const isInvalidWord = word.split("").find((character) => {
       const characterCount = availableLetterCounts.get(character);
