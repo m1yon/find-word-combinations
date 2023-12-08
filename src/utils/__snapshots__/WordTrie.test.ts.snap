@@ -37,3 +37,209 @@ WordTrie {
   "value": "",
 }
 `;
+
+exports[`generates a single node correctly 1`] = `
+WordTrie {
+  "children": [],
+  "isWord": false,
+  "value": "a",
+}
+`;
+
+exports[`generates the correct tree given multiple words 1`] = `
+WordTrie {
+  "children": [
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [],
+              "isWord": true,
+              "value": "d",
+            },
+          ],
+          "isWord": false,
+          "value": "e",
+        },
+      ],
+      "isWord": false,
+      "value": "r",
+    },
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [
+                WordTrie {
+                  "children": [],
+                  "isWord": true,
+                  "value": "e",
+                },
+              ],
+              "isWord": false,
+              "value": "e",
+            },
+          ],
+          "isWord": false,
+          "value": "r",
+        },
+      ],
+      "isWord": false,
+      "value": "t",
+    },
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [],
+              "isWord": true,
+              "value": "r",
+            },
+          ],
+          "isWord": false,
+          "value": "a",
+        },
+      ],
+      "isWord": false,
+      "value": "f",
+    },
+  ],
+  "isWord": false,
+  "value": "",
+}
+`;
+
+exports[`generates the correct tree given multiple words that do not connect 1`] = `
+WordTrie {
+  "children": [
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [],
+              "isWord": true,
+              "value": "d",
+            },
+          ],
+          "isWord": false,
+          "value": "e",
+        },
+      ],
+      "isWord": false,
+      "value": "r",
+    },
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [
+                WordTrie {
+                  "children": [],
+                  "isWord": true,
+                  "value": "e",
+                },
+              ],
+              "isWord": false,
+              "value": "e",
+            },
+          ],
+          "isWord": false,
+          "value": "r",
+        },
+      ],
+      "isWord": false,
+      "value": "t",
+    },
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [],
+              "isWord": true,
+              "value": "r",
+            },
+          ],
+          "isWord": false,
+          "value": "a",
+        },
+      ],
+      "isWord": false,
+      "value": "f",
+    },
+  ],
+  "isWord": false,
+  "value": "",
+}
+`;
+
+exports[`generates the correct tree given multiple words that do NOT connect 1`] = `
+WordTrie {
+  "children": [
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [],
+              "isWord": true,
+              "value": "d",
+            },
+          ],
+          "isWord": false,
+          "value": "e",
+        },
+      ],
+      "isWord": false,
+      "value": "r",
+    },
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [
+                WordTrie {
+                  "children": [],
+                  "isWord": true,
+                  "value": "e",
+                },
+              ],
+              "isWord": false,
+              "value": "e",
+            },
+          ],
+          "isWord": false,
+          "value": "r",
+        },
+      ],
+      "isWord": false,
+      "value": "t",
+    },
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [],
+              "isWord": true,
+              "value": "r",
+            },
+          ],
+          "isWord": false,
+          "value": "a",
+        },
+      ],
+      "isWord": false,
+      "value": "f",
+    },
+  ],
+  "isWord": false,
+  "value": "",
+}
+`;
