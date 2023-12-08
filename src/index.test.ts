@@ -21,3 +21,8 @@ it("finds no words given an empty string", () => {
   const result = findWordCombinations("");
   expect(result).toEqual([]);
 });
+
+it("finds the correct word given an input where only one word can be made", () => {
+  const result = findWordCombinations("a");
+  expect(result).toEqual(["a"]);
+});
