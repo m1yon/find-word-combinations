@@ -1,5 +1,9 @@
 import { WordTrie } from "../utils/WordTrie";
 
+// M = length of available letters
+// D = Maximum depth of wordTrie
+// B = Average childs per node
+// O(M + B^D)
 const findWordCombinations = ({
   availableLetters,
   wordTrie,
@@ -9,13 +13,20 @@ const findWordCombinations = ({
 }) => {
   const result = new Set();
 
+  const availableLetterCounts = new Map();
+
+  availableLetters.split("").forEach((character) => {
+    availableLetterCounts.set(
+      character,
+      (availableLetterCounts.get(character) ?? 0) + 1
+    );
+  });
+
   const generateWordCombinations = ({
     currentNode,
-    availableLetters,
     currentLetters,
   }: {
     currentNode: WordTrie;
-    availableLetters: string;
     currentLetters: string[];
   }) => {
     if (currentNode.getIsWord()) {
@@ -29,19 +40,27 @@ const findWordCombinations = ({
         continue;
       }
 
-      if (availableLetters.includes(letter)) {
+      if ((availableLetterCounts.get(letter) ?? 0) > 0) {
+        availableLetterCounts.set(
+          letter,
+          (availableLetterCounts.get(letter) ?? 0) - 1
+        );
+
         generateWordCombinations({
           currentNode: child,
-          availableLetters: availableLetters.replace(letter, ""),
           currentLetters: [...currentLetters, letter],
         });
+
+        availableLetterCounts.set(
+          letter,
+          (availableLetterCounts.get(letter) ?? 0) + 1
+        );
       }
     }
   };
 
   generateWordCombinations({
     currentNode: wordTrie,
-    availableLetters,
     currentLetters: [],
   });
 
