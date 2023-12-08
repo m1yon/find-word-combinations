@@ -7,21 +7,21 @@ it("generates a single node correctly", () => {
   expect(root).toMatchSnapshot();
 });
 
-it("generates the correct tree given a single word", () => {
+it("generates the correct trie given a single word", () => {
   const root = new WordTrie({ value: "" });
   root.addWord("great");
 
   expect(root).toMatchSnapshot();
 });
 
-it("generates the correct tree given multiple words that do not connect", () => {
+it("generates the correct trie given multiple words that do not connect", () => {
   const root = new WordTrie({ value: "" });
   root.addWords(["red", "tree", "far"]);
 
   expect(root).toMatchSnapshot();
 });
 
-it("generates the correct tree given multiple words that do connect", () => {
+it("generates the correct trie given multiple words that do connect", () => {
   const root = new WordTrie({ value: "" });
   root.addWords(["great", "growl", "growler"]);
 
