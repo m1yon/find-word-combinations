@@ -39,6 +39,12 @@ export class WordTrie {
     }
   }
 
+  addWords(words: string[]) {
+    for (const word of words) {
+      this.addWord(word);
+    }
+  }
+
   getValue() {
     return this.value;
   }

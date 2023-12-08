@@ -16,18 +16,14 @@ it("generates the correct tree given a single word", () => {
 
 it("generates the correct tree given multiple words that do not connect", () => {
   const root = new WordTrie({ value: "" });
-  root.addWord("red");
-  root.addWord("tree");
-  root.addWord("far");
+  root.addWords(["red", "tree", "far"]);
 
   expect(root).toMatchSnapshot();
 });
 
 it("generates the correct tree given multiple words that do connect", () => {
   const root = new WordTrie({ value: "" });
-  root.addWord("great");
-  root.addWord("growl");
-  root.addWord("growler");
+  root.addWords(["great", "growl", "growler"]);
 
   expect(root).toMatchSnapshot();
 });
