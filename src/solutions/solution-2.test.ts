@@ -8,7 +8,7 @@ describe("Solution 2", () => {
     const wordTrie = new WordTrie();
     wordTrie.addWords(words);
 
-    const result = findWordCombinations("oogd", wordTrie);
+    const result = findWordCombinations({ availableLetters: "oogd", wordTrie });
 
     const expectedResult = [
       "do",
@@ -31,7 +31,7 @@ describe("Solution 2", () => {
     const wordTrie = new WordTrie();
     wordTrie.addWords(words);
 
-    const result = findWordCombinations("", wordTrie);
+    const result = findWordCombinations({ availableLetters: "", wordTrie });
     expect(result).toEqual([]);
   });
 
@@ -39,7 +39,7 @@ describe("Solution 2", () => {
     const wordTrie = new WordTrie();
     wordTrie.addWords(words);
 
-    const result = findWordCombinations("a", wordTrie);
+    const result = findWordCombinations({ availableLetters: "a", wordTrie });
     expect(result).toEqual(["a"]);
   });
 });

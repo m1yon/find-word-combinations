@@ -1,13 +1,23 @@
 import { WordTrie } from "../utils/WordTrie";
 
-const findWordCombinations = (availableLetters: string, wordTrie: WordTrie) => {
+const findWordCombinations = ({
+  availableLetters,
+  wordTrie,
+}: {
+  availableLetters: string;
+  wordTrie: WordTrie;
+}) => {
   const result = new Set();
 
-  const generateWordCombinations = (
-    currentNode: WordTrie,
-    availableLetters: string,
-    currentLetters: string[]
-  ) => {
+  const generateWordCombinations = ({
+    currentNode,
+    availableLetters,
+    currentLetters,
+  }: {
+    currentNode: WordTrie;
+    availableLetters: string;
+    currentLetters: string[];
+  }) => {
     if (currentNode.getIsWord()) {
       result.add(currentLetters.join(""));
     }
@@ -20,15 +30,20 @@ const findWordCombinations = (availableLetters: string, wordTrie: WordTrie) => {
       }
 
       if (availableLetters.includes(letter)) {
-        generateWordCombinations(child, availableLetters.replace(letter, ""), [
-          ...currentLetters,
-          letter,
-        ]);
+        generateWordCombinations({
+          currentNode: child,
+          availableLetters: availableLetters.replace(letter, ""),
+          currentLetters: [...currentLetters, letter],
+        });
       }
     }
   };
 
-  generateWordCombinations(wordTrie, availableLetters, []);
+  generateWordCombinations({
+    currentNode: wordTrie,
+    availableLetters,
+    currentLetters: [],
+  });
 
   return Array.from(result);
 };
