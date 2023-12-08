@@ -12,23 +12,17 @@ export class WordTrie {
   addWord(word: string) {
     let node = this as WordTrie;
 
-    for (let i = 0; i < word.length; i++) {
-      const character = word[i];
-
-      if (!character) {
-        return;
-      }
-
+    word.split("").forEach((character, index) => {
       const nextChildNode = node.getChildren().find((child) => {
         return child.getValue() === character;
       });
 
       if (nextChildNode) {
         node = nextChildNode;
-        continue;
+        return;
       }
 
-      const isLastCharacter = i === word.length - 1;
+      const isLastCharacter = index === word.length - 1;
 
       const newNode = new WordTrie({
         value: character,
@@ -36,7 +30,7 @@ export class WordTrie {
       });
 
       node = node.addChild(newNode);
-    }
+    });
   }
 
   addWords(words: string[]) {
