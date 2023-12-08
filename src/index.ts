@@ -1,5 +1,9 @@
 import words from "./data/words.json";
 
+// N = number of english words
+// M = length of available letters
+// K = length of longest english word
+// O(N * (M + K))
 const findWordCombinations = (availableLetters: string) => {
   const result = [];
 
