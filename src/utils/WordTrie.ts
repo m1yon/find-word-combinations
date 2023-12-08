@@ -10,7 +10,7 @@ export class WordTrie {
   }
 
   addWord(word: string) {
-    let node = this as WordTrie;
+    let node: WordTrie = this;
 
     word.split("").forEach((character, index) => {
       const nextChildNode = node.getChildren().find((child) => {
