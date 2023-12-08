@@ -345,7 +345,7 @@ WordTrie {
     },
   ],
   "isWord": false,
-  "value": "",
+  "value": undefined,
 }
 `;
 
@@ -411,7 +411,7 @@ WordTrie {
     },
   ],
   "isWord": false,
-  "value": "",
+  "value": undefined,
 }
 `;
 
@@ -478,6 +478,6 @@ WordTrie {
     },
   ],
   "isWord": false,
-  "value": "",
+  "value": undefined,
 }
 `;

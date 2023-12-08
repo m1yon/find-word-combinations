@@ -1,12 +1,12 @@
 export class WordTrie {
-  private value: string;
+  private value?: string;
   private children: WordTrie[];
   private isWord: boolean;
 
-  constructor({ value, isWord }: { value: string; isWord?: boolean }) {
-    this.value = value;
+  constructor(args?: { value?: string; isWord?: boolean }) {
+    this.value = args?.value;
     this.children = [];
-    this.isWord = isWord ?? false;
+    this.isWord = args?.isWord ?? false;
   }
 
   addWord(word: string) {
