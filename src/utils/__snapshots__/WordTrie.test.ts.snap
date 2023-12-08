@@ -1,0 +1,39 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generates the correct tree given a single word 1`] = `
+WordTrie {
+  "children": [
+    WordTrie {
+      "children": [
+        WordTrie {
+          "children": [
+            WordTrie {
+              "children": [
+                WordTrie {
+                  "children": [
+                    WordTrie {
+                      "children": [],
+                      "isWord": true,
+                      "value": "t",
+                    },
+                  ],
+                  "isWord": false,
+                  "value": "a",
+                },
+              ],
+              "isWord": false,
+              "value": "e",
+            },
+          ],
+          "isWord": false,
+          "value": "r",
+        },
+      ],
+      "isWord": false,
+      "value": "g",
+    },
+  ],
+  "isWord": false,
+  "value": "",
+}
+`;
