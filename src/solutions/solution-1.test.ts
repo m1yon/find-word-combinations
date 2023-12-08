@@ -1,5 +1,5 @@
 import { expect, it } from "bun:test";
-import findWordCombinations from ".";
+import findWordCombinations from "./solution-1";
 
 it("finds the correct words given a standard input", () => {
   const result = findWordCombinations("oogd");

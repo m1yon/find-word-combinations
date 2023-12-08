@@ -1,4 +1,4 @@
-import words from "./data/words.json";
+import words from "../data/words.json";
 
 // N = number of english words
 // M = length of available letters
